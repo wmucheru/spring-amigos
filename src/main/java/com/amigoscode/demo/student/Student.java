@@ -56,10 +56,11 @@ public class Student {
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
+        this.age = Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public int getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears();
+        return age;
     }
 
     public void setAge(int age) {
