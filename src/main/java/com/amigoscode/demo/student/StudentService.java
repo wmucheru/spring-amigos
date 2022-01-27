@@ -20,7 +20,7 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
-        Optional<Student> studentOptional = repository.findStudentByEmail(student.getEmail());
+        Optional<Student> studentOptional = repository.findByEmail(student.getEmail());
 
         if(studentOptional.isPresent()){
             throw new IllegalStateException("Email already exists");
