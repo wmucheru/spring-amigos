@@ -23,7 +23,7 @@ public class StudentService {
         Optional<Student> studentOptional = repository.findByEmail(student.getEmail());
 
         if(studentOptional.isPresent()){
-            throw new IllegalStateException("Email already exists");
+            throw new IllegalStateException("Email " + student.getEmail() + " exists");
         }
         else{
             repository.save(student);
