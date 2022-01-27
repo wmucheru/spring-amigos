@@ -1,5 +1,6 @@
 package com.amigoscode.demo.student;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -13,6 +14,11 @@ class StudentRepositoryTest {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @AfterEach
+    void tearDown() {
+        studentRepository.deleteAll();
+    }
 
     @Test
     void shouldFindStudentByEmail() {
